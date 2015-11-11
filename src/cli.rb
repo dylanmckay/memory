@@ -5,7 +5,7 @@ class MemoryCLIView
     
     loop do
       print("[#{guesses_left} guesses, #{boxes_remaining_count} boxes left] Enter a box number: ")
-      num = gets.chomp.to_i
+      num = Integer(gets.chomp) rescue nil
 
       if num
         return num

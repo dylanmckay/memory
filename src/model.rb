@@ -39,8 +39,13 @@ class MemoryModel
     @boxes.find { |box| box.number == number }
   end
 
+  # TODO: remove bang
   def remove_boxes!(box1, box2)
     @boxes.reject! { |box| box==box1 || box==box2 }
+  end
+
+  def remove_box(box)
+    @boxes.reject! { |b| b==box }
   end
 
   def remaining_box_count

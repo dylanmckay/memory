@@ -1,5 +1,7 @@
 
-
+TURN_COUNT = 40
+BOX_COUNT = 20
+LETTER_BAG = "abbccddeeffgghhiijj".chars
 
 class Box
   attr_reader :letter, :number
@@ -13,7 +15,9 @@ end
 class MemoryModel
   attr_reader :boxes, :remaining_turns
   
-  def initialize(box_count, turn_count, letter_bag)
+  def initialize(box_count = BOX_COUNT,
+                 turn_count = TURN_COUNT,
+                 letter_bag = LETTER_BAG)
     @boxes = (1..box_count).map { |num| Box.new(num, letter_bag.sample) }
     @remaining_turns = turn_count
   end

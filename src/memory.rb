@@ -1,8 +1,4 @@
 
-TURN_COUNT = 40
-BOX_COUNT = 20
-LETTER_BAG = "abbccddeeffgghhiijj".chars
-
 require_relative 'model'
 require_relative 'cli'
 

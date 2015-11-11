@@ -4,6 +4,8 @@ require_relative 'cli'
 
 class MemoryController
 
+  attr_reader :model, :view
+
   def initialize(model, view)
     @model = model
     @view = view
@@ -48,8 +50,6 @@ class MemoryController
       @last_box = box
     end
   end
-
-  private
 
   def boxes_match?(box1, box2)
     box1 && box2 && (box1 != box2) && box1.letter == box2.letter

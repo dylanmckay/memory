@@ -26,7 +26,7 @@ class MemoryModel
     @boxes.empty?
   end
 
-  def decrement_remaining_turns
+  def take_turn
     fail if @remaining_turns <= 0
     @remaining_turns -= 1
   end

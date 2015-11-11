@@ -42,7 +42,7 @@ class MemoryController
 
   def open_box(box)
     @view.show_box(box)
-    @model.decrement_remaining_turns
+    @model.take_turn
 
     if boxes_match?(box, @last_box)
       @view.show_correct_guess(box, @last_box)

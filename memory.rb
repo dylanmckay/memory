@@ -63,7 +63,7 @@ end
 
 
 model = MemoryModel.new(BOX_COUNT, TURN_COUNT, LETTER_BAG)
-view = MemoryView.new
+view = MemoryCLIView.new
 controller = MemoryController.new(model, view)
 
 controller.play

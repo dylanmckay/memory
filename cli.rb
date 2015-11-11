@@ -1,6 +1,6 @@
 
 
-class MemoryView
+class MemoryCLIView
   def prompt_number(guesses_left, boxes_remaining_count)
     
     loop do

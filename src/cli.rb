@@ -8,7 +8,7 @@ class MemoryCLIView
       num = Integer(gets.chomp) rescue nil
 
       if num
-        if !DEBUG
+        if defined?(DEBUG) && !DEBUG
           system "clear" or system "cls"
         end
 

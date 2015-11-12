@@ -18,7 +18,15 @@ class MemoryModel
   def initialize(box_count = BOX_COUNT,
                  turn_count = TURN_COUNT,
                  letter_bag = LETTER_BAG)
-    @boxes = (1..box_count).map { |num| Box.new(num, letter_bag.sample) }
+    @boxes = []
+
+    # TODO: Clean this up
+    (1..(BOX_COUNT/2)).each do |n|
+      letter = letter_bag.sample
+      @boxes << Box.new(n,letter)
+      @boxes << Box.new(n+BOX_COUNT/2,letter)
+    end
+
     @remaining_turns = turn_count
   end
 

@@ -33,7 +33,7 @@ class MemoryController
     if box
       open_box(box)
     else
-      @view.show_nonexistent_box_message(number)
+      @view.show_nonexistent_box(number)
     end
   end
 

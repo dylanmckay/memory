@@ -26,7 +26,7 @@ describe MemoryController do
   describe "#try_open_box_number" do
     it "prints message when the box doesn't exist" do
 
-      expect(view).to receive(:show_nonexistent_box_message)
+      expect(view).to receive(:show_nonexistent_box)
       controller.try_open_box_number(detached_box.number)
     end
 
@@ -57,7 +57,7 @@ describe MemoryController do
       expect(view).to receive(:show_box)
       controller.try_open_box_number(test_box1.number)
 
-      expect(view).to receive(:show_nonexistent_box_message)
+      expect(view).to receive(:show_nonexistent_box)
       controller.try_open_box_number(detached_box.number)
 
       expect(controller.last_box).to eq test_box1

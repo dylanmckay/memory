@@ -23,7 +23,7 @@ class MemoryCLIView
     puts("The box contains '#{box.letter}'")
   end
 
-  def show_nonexistent_box_message(number)
+  def show_nonexistent_box(number)
     puts("No box numbered `#{number}` exists")
   end
 

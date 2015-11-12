@@ -40,5 +40,4 @@ describe MemoryCLIView do
       view.prompt_number(0, "asdf123")
     end
   end
-
 end

@@ -8,6 +8,10 @@ class MemoryCLIView
       num = Integer(gets.chomp) rescue nil
 
       if num
+        if !DEBUG
+          system "clear" or system "cls"
+        end
+
         return num
       else
         puts("Please enter a number")

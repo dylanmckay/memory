@@ -76,6 +76,14 @@ describe MemoryController do
 
       controller.play
     end
+
+    it "shows a message if you lose" do
+
+      expect(view).to receive(:prompt_number).and_return(test_box1.number).at_least(:once)
+      expect(view).to receive(:show_box).at_least(:once)
+      expect(view).to receive(:show_lose)
+      controller.play
+    end
   end
 
 end

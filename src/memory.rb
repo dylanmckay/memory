@@ -24,10 +24,10 @@ class MemoryController
 
   def play_turn
     number = @view.prompt_number(@model.remaining_turns, @model.remaining_box_count)
-    try_open_box(number)
+    try_open_box_number(number)
   end
 
-  def try_open_box(number)
+  def try_open_box_number(number)
     box = @model.find_box(number)
 
     if box
@@ -38,9 +38,19 @@ class MemoryController
     end
   end
 
+  def boxes_match?(box1, box2)
+    box1 && box2 && (box1.number != box2.number) && box1.letter == box2.letter
+  end
+
+  private
+
   def open_box(box)
     @view.show_box(box)
     @model.take_turn
+
+    if @last_box
+      puts "box: #{box.letter}, #{@last_box.letter}"
+    end
 
     if boxes_match?(box, @last_box)
       @view.show_correct_guess(box, @last_box)
@@ -51,8 +61,5 @@ class MemoryController
     end
   end
 
-  def boxes_match?(box1, box2)
-    box1 && box2 && (box1 != box2) && box1.letter == box2.letter
-  end
 end
 

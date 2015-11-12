@@ -51,5 +51,10 @@ class MemoryModel
   def remaining_box_count
     @boxes.length
   end
+
+  def with_boxes(boxes)
+    @boxes = boxes
+    self
+  end
 end
 

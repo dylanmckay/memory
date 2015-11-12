@@ -52,6 +52,16 @@ describe MemoryController do
       expect(view).to receive(:show_box)
       controller.try_open_box_number(test_box3.number)
     end
+
+    it "doesn't change the last opened box if a nonexistent box was input" do
+      expect(view).to receive(:show_box)
+      controller.try_open_box_number(test_box1.number)
+
+      expect(view).to receive(:show_nonexistent_box_message)
+      controller.try_open_box_number(detached_box.number)
+
+      expect(controller.last_box).to eq test_box1
+    end
   end
 
   describe "#play_turn" do

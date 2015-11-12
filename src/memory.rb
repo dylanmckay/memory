@@ -4,7 +4,7 @@ require_relative 'cli'
 
 class MemoryController
 
-  attr_reader :model, :view
+  attr_reader :model, :view, :last_box
 
   def initialize(model, view)
     @model = model
@@ -34,7 +34,6 @@ class MemoryController
       open_box(box)
     else
       @view.show_nonexistent_box_message(number)
-      @last_box = nil
     end
   end
 

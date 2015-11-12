@@ -6,14 +6,12 @@ describe MemoryController do
   let(:test_box1) { Box.new(12,'a') }
   let(:test_box2) { Box.new(13,'a') }
   let(:test_box3) { Box.new(19,'c') }
+  let(:test_box4) { Box.new(18,'c') }
   let(:detached_box) { Box.new(1234,'z') }
 
-  let(:model) { MemoryModel.new.with_boxes([test_box1,test_box2,test_box3]) }
+  let(:model) { MemoryModel.new.with_boxes([test_box1,test_box2,test_box3,test_box4]) }
   let(:view) { instance_double(MemoryCLIView) }
   let(:controller) { MemoryController.new(model,view) }
-
-  def pairs
-  end
 
   describe "#boxes_match?" do
     it "doesn't match the same box with itself" do
@@ -64,17 +62,20 @@ describe MemoryController do
     end
   end
 
-  # describe "#play" do
-  #   it "shows a message if you win" do
-  #
-  #     expect(view).to receive(:show_correct_guess)
-  #
-  #     model.boxes.each do |box|
-  #       expect(view).to receive(:prompt_number).and_return(box.number)
-  #       expect(view).to receive(:show_box)
-  #     end
-  #     controller.play
-  #   end
-  # end
+  describe "#play" do
+    it "shows a message if you win" do
+
+      expect(view).to receive(:show_correct_guess).at_least(:once)
+
+      model.boxes.each do |box|
+        expect(view).to receive(:prompt_number).and_return(box.number)
+        expect(view).to receive(:show_box)
+      end
+
+      expect(view).to receive(:show_win)
+
+      controller.play
+    end
+  end
 
 end

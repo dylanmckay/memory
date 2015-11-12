@@ -30,14 +30,14 @@ describe MemoryModel do
     end
   end
 
-  describe "#remove_boxes!" do
+  describe "#remove_boxes" do
 
     it "removes boxes when called" do
       (1..BOX_COUNT).step(2).each do |n|
         box1 = model.find_box(n)
         box2 = model.find_box(n+1)
 
-        model.remove_boxes!(box1, box2)
+        model.remove_boxes(box1, box2)
 
         expect(model.find_box(n)).to be_falsy
         expect(model.find_box(n+1)).to be_falsy

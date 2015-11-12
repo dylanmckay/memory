@@ -50,7 +50,7 @@ class MemoryController
 
     if boxes_match?(box, @last_box)
       @view.show_correct_guess(box, @last_box)
-      @model.remove_boxes!(@last_box, box)
+      @model.remove_boxes(@last_box, box)
       @last_box = nil
     else
       @last_box = box

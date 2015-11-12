@@ -17,6 +17,9 @@ describe MemoryCLIView do
   describe "#prompt_number" do
 
     it "doesn't accept characters" do
+      expect(view).to receive(:puts).at_least(:once)
+      expect(view).to receive(:print).at_least(:once)
+
       "abcd1".chars.each do |c|
         expect(view).to receive(:gets).and_return(c)
       end

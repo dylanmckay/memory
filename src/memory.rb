@@ -15,7 +15,7 @@ class MemoryController
   def play
     play_turn while @model.in_progress?
 
-    if won?
+    if @model.won?
       @view.show_win
     else
       @view.show_lose(@model.boxes)
@@ -47,10 +47,6 @@ class MemoryController
   def open_box(box)
     @view.show_box(box)
     @model.take_turn
-
-    if @last_box
-      puts "box: #{box.letter}, #{@last_box.letter}"
-    end
 
     if boxes_match?(box, @last_box)
       @view.show_correct_guess(box, @last_box)

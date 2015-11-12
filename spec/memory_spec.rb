@@ -14,7 +14,7 @@ describe MemoryController do
   let(:controller) { MemoryController.new(model,view) }
 
   describe "#boxes_match?" do
-    it "doesn't match the same box with itself" do
+    it "doesn't match a box with itself" do
       expect(controller.boxes_match?(test_box1,test_box1)).to eq false
     end
 
